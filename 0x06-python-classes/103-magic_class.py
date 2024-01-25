@@ -1,7 +1,12 @@
 #!/usr/bin/python3
+"""this is a magic"""
+
+
 import math
 
+
 class MagicClass:
+    """this is a magic class"""
     def __init__(self, radius):
         if not isinstance(radius, (int, float)):
             raise TypeError('radius must be a number')
