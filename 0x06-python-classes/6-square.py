@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+"""this defines the square"""
 class Square:
     """Define a square class. """
 
@@ -48,4 +49,3 @@ class Square:
                 print()
             for _ in range(self.__size):
                 print(' ' * self.__position[0] + '#' * self.__size)
-                
