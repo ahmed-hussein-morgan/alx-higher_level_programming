@@ -1,5 +1,7 @@
 #!/usr/bin/python3
 """ defines a node of a singly linked list  """
+
+
 class Node:
     """Define a node of a singly linked list. """
 
@@ -57,7 +59,10 @@ class SinglyLinkedList:
             self.__head = new_node
         else:
             current_node = self.__head
-            while current_node.next_node is not None and current_node.next_node.data < value:
-                current_node = current_node.next_node
+            while current_node.next_node is not None:
+                if current_node.next_node.data < value:
+                    current_node = current_node.next_node
+                else:
+                    break
             new_node.next_node = current_node.next_node
             current_node.next_node = new_node
