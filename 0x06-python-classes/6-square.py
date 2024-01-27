@@ -21,24 +21,21 @@ class Square:
 
         # if not isinstance(position, tuple) and len(position) != 2:
         #     if position[0] < 0 or position[1] < 0:
-        #         raise TypeError("position must be a tuple of 2 positive integers")
-            
+
         self.__position = position
 
-    
     @property
     def position(self):
         return self.__position
-    
+
     @position.setter
     def position(self, value):
         if not isinstance(value, tuple):
             raise TypeError("position must be a tuple of 2 positive integers")
         elif len(value) != 2 and value[0] < 0 or value[1] < 0:
             raise TypeError("position must be a tuple of 2 positive integers")
-        
+
         self.__position = value
-       
 
     def area(self):
         """Calculating the current square area"""
