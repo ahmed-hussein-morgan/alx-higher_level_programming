@@ -10,6 +10,8 @@ class LockedClass:
     #     return obj
 
     def __setattr__(self, name, value):
+        if not isinstance(name, str):
+            raise AttributeError(f"'LockedClass' object has no attribute '{name}'")
         if name != 'first_name':
             raise\
                 AttributeError(f"'LockedClass' object has no attribute '{name}'")
