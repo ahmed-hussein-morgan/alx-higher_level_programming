@@ -11,12 +11,17 @@ class LockedClass:
         # obj.first_name = "john"
         # attribute = getattr(obj, "first_name")
         return obj
-    try:
-        def __setattr__(self, name, value):
-            if name == 'first_name':
-                super().__setattr__(name, value)
-    except AttributeError as e:
-        print("[{}] {}".format(e.__class__.__name__, e))
+    def __setattr__(self, name, value):
+            if name != 'first_name':
+                raise AttributeError(f"'{self.__class__.__name__}' object has no attribute '{name}'")
+            else:
+                 super().__setattr__(name, value)    
+    # try:
+    #     def __setattr__(self, name, value):
+    #         if name == 'first_name':
+    #             super().__setattr__(name, value)
+    # except AttributeError as e:
+    #     print("[{}] {}".format(e.__class__.__name__, e))
 
     # try:
     #     def __setattr__(self, name, value):
