@@ -8,15 +8,22 @@ class LockedClass:
     def __new__(cls):
         # first_name = "first_name"
         obj = super().__new__(cls)
-        obj.first_name = "john"
-        attribute = getattr(obj, "first_name")
+        # obj.first_name = "john"
+        # attribute = getattr(obj, "first_name")
         return obj
+    try:
+        def __setattr__(self, name, value):
+            if name == 'first_name':
+               super().__setattr__(name, value)
+    except AttributeError as e:
+        print("[{}] {}".format(e.__class__.__name__, e))
 
-    def __setattr__(self, name, value):
-        if name != 'first_name':
-            raise AttributeError()
-        else:
-            super().__setattr__(name, value)
+    # try:
+    #     def __setattr__(self, name, value):
+    #         if name != 'first_name':
+    #             raise AttributeError()
+    #         else:
+    #             super().__setattr__(name, value)
 
     # def __init__(self):
     #     self.first_name
