@@ -2,17 +2,31 @@
 """lock class"""
 class LockedClass:
     """lock class"""
-    first_name = None
-    
-    def __init__(self):
-        self.first_name
+    def __new__(cls):
+        # first_name = "first_name"
+        obj = super().__new__(cls)
+        obj.first_name = "john"
+        attribute = getattr(obj, "first_name")
+        return obj
+    def __setattr__(self, name, value):
+        if name != 'first_name':
+            raise AttributeError(f"{__class__.__name__} object has no attribute {name}")
+        else:
+            super().__setattr__(name, value)
 
-    @property
-    def getter(self):
-        return self.first_name
+    # def __init__(self):
+    #     self.first_name
+
+    # @property
+    # def getter(self):
+    #     return self.first_name
     
-    def setter (self, value):
-        self.first_name = value
+    # def setter (self, value):
+    #     self.first_name = value
+
+
+
+
     # def __new__(cls, *args, **kwargs):
     #     obj = super().__new__(cls)
     #     if first_name == "first_name":
