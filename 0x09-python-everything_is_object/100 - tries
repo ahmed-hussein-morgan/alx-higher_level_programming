@@ -1,0 +1,18 @@
+#!/usr/bin/python3
+def magic_string(call=iter([0])):
+    magic_string.call = getattr(magic_string, 'call', 0) + 1
+    return ', '.join(['BestSchool'] * magic_string.call)
+    # next(call)[0] += 1
+    # return ', '.join(['BestSchool'] * next(call)[0])
+
+
+    # magic_string.call += 1
+    # return ', '.join(['BestSchool'] * magic_string.call)
+    # return ', '.join(['BestSchool' * (magic_string.call + 1)])
+    #return ("BestSchool" * (magic_string.call + 1))
+
+
+    # return "BestSchool" * magic_string.call += 1
+    # print("BestSchool", end=", ")
+    # return ', '.join(['BestSchool']
+                     
