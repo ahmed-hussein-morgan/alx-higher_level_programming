@@ -8,24 +8,23 @@ This is an example text file in reStructuredText format.
 First import
 ``BaseGeometry`` from the ``example`` module:
 
->>> from base_geometry import integer_validator
+>>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
 
 Now use it:
 
 passing string instead of int
->>> integer_validator("name", "John")
+
 Traceback (most recent call last):
 	...
 TypeError: value must be an integer
 
 passing value equal to 0
->>> integer_validator("age", 0)
+
 Traceback (most recent call last):
 	...
 ValueError: value must be greater than 0
 
 passing value less than 0
->>> integer_validator("name", "John")
 Traceback (most recent call last):
 	...
 ValueError: value must be greater than 0
