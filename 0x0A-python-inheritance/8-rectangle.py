@@ -26,5 +26,3 @@ class Rectangle(BaseGeometry):
         """init func"""
         self._width = self.integer_validator("width", width)
         self.height = self.integer_validator("height", height)
-        
-# print (issubclass(Rectangle, BaseGeometry))
