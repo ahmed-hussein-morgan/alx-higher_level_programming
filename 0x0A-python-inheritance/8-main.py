@@ -3,7 +3,6 @@ Rectangle = __import__('8-rectangle').Rectangle
 BaseGeometry = __import__('7-base_geometry').BaseGeometry
 
 # r = Rectangle(3, 5)
-
 # print(r)
 # print(dir(r))
 
