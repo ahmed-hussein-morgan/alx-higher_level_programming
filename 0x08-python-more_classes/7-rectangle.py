@@ -59,7 +59,7 @@ class Rectangle:
         for i in range(self.__height):
 
             return "\n".join(
-                Rectangle.print_symbol * self.__width
+                self.print_symbol * self.__width
                 for _ in range(self.__height)
             )
 
