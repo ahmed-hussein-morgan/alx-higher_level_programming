@@ -8,10 +8,10 @@ class Rectangle(Base):
     def __init__(self, width, height, x=0, y=0, id=None):
         """rectanglr attributes"""
         super().__init__(id)
-        self.__width = width
-        self.__height = height
-        self.__x = x
-        self.__y = y
+        self.width = width
+        self.height = height
+        self.x = x
+        self.y = y
 
     @property
     def width(self):
@@ -19,6 +19,10 @@ class Rectangle(Base):
 
     @width.setter
     def width(self, value):
+        if not isinstance(value, int):
+            raise TypeError("width must be an integer")
+        if value <= 0:
+            raise ValueError("width must be > 0")
         self.__width = value
 
     @property
@@ -27,6 +31,10 @@ class Rectangle(Base):
 
     @height.setter
     def height(self, value):
+        if not isinstance(value, int):
+            raise TypeError("height must be an integer")
+        if value <= 0:
+            raise ValueError("height must be > 0")
         self.__height = value
 
     @property
@@ -35,6 +43,10 @@ class Rectangle(Base):
 
     @x.setter
     def x(self, value):
+        if not isinstance(value, int):
+            raise TypeError("x must be an integer")
+        if value < 0:
+            raise ValueError("x must be >= 0")
         self.__x = value
 
     @property
@@ -43,4 +55,46 @@ class Rectangle(Base):
 
     @y.setter
     def y(self, value):
+        if not isinstance(value, int):
+            raise TypeError("y must be an integer")
+        if value < 0:
+            raise ValueError("y must be >= 0")
         self.__y = value
+
+    def area(self):
+        """claculating the instance area"""
+        return self.__width * self.__height
+
+    def display(self):
+        """display symbole"""
+        for vertical in range(self.__y):
+            print()
+        for symbole in range(self.__height):
+            print(" " * self.__x, end="")
+            print("#" * self.__width)
+
+    def __str__(self) -> str:
+        return f"[Rectangle] " + \
+            f"({self.id}) {self.__x}/{self.__y} " + \
+            f"- {self.__width}/{self.__height}"
+
+    def update(self, *args, **kwargs):
+        """specify the arguments"""
+        if len(args) > 0:
+            if len(args) == 1:
+                self.id = args[0]
+            if len(args) == 2:
+                self.__width = args[1]
+            if len(args) == 3:
+                self.__height = args[2]
+            if len(args) == 4:
+                self.__x = args[3]
+            if len(args) == 5:
+                self.__y = args[4]
+
+        if args:
+            return
+
+        for key, value in kwargs.items():
+            if hasattr(self, key):
+                setattr(self, key, value)
