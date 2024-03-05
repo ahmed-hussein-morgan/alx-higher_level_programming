@@ -31,15 +31,19 @@ class Square(Rectangle):
         """specify the arguments"""
         if len(args) > 0:
             if len(args) == 1:
-                self.size = args[0]
+                self.id = args[0]
             if len(args) == 2:
+                self.id = args[0]
                 self.size = args[1]
             if len(args) == 3:
+                self.id = args[0]
+                self.size = args[1]
                 self.x = args[2]
             if len(args) == 4:
+                self.id = args[0]
+                self.size = args[1]
+                self.x = args[2]
                 self.y = args[3]
-            if len(args) == 5:
-                self.id = args[4]
 
         if args:
             return
