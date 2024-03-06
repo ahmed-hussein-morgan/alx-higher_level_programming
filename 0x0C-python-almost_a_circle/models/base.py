@@ -37,4 +37,3 @@ class Base:
 
         with open(f"{cls.__name__}.json", 'w') as file:
             file.write(cls.to_json_string(data))
-        
