@@ -1,4 +1,4 @@
-
+#!/usr/bin/node
 function largest (array) {
   // start the argument passed to the function from the third arg
   // to exclude the process.argv[0] which is the path to the Node.js executable
