@@ -14,7 +14,7 @@ email = sys.argv[2]
 
 # Prepare the POST data
 data = urllib.parse.urlencode({'email': email})
-data = data.encode('ascii') # Encode the data to bytes
+data = data.encode('ascii')
 
 # Send a POST request to the URL with the email as a parameter
 with urllib.request.urlopen(url, data=data) as response:
