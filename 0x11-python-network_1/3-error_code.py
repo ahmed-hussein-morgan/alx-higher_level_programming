@@ -11,7 +11,7 @@ if __name__ == "__main__":
         with urlopen(sys.argv[1]) as response:
             html = response.read()
 
-        print(f"html")
+        print(html)
 
     except HTTPError as error:
         print(f"Error code: {error.code} {error.reason}")
