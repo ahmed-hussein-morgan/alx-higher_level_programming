@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 """displays the value of the variable X-Request-Id"""
+
 import requests
 import sys
 
