@@ -14,4 +14,5 @@ if __name__ == "__main__":
         print(html)
 
     except HTTPError as error:
-        print(f"Error code: {error.code} {error.reason}")
+        #print(f"Error code: {error.code} {error.reason}")
+        print(f"Error code: {error.code}")
