@@ -9,7 +9,7 @@ from urllib.error import HTTPError, URLError
 if __name__ == "__main__":
     try:
         with urlopen(sys.argv[1]) as response:
-            html = response.read()
+            html = response.read().decode()
 
         print(html)
 
