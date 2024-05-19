@@ -3,7 +3,7 @@
 
 from urllib.request import urlopen
 import sys
-from urllib.error import HTTPError, URLError
+from urllib.error import HTTPError
 
 
 if __name__ == "__main__":
