@@ -3,6 +3,7 @@
 import sys
 import requests
 
-response = requests.post(sys.argv[1], sys.argv[2])
-decoded_content = response.content.decode()
-print(f"Your email is: {decoded_content}")
+if __name__ == "__main__":
+    response = requests.post(sys.argv[1], data={'email': {sys.argv[2]}})
+    decoded_content = response.content.decode()
+    print(f"Your email is: {decoded_content}")
