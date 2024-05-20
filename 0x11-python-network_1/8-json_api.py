@@ -6,7 +6,7 @@ import sys
 import requests
 
 if __name__ == "__main__":
-    if len(sys.argv[1]) == 0 or not isinstance(sys.argv[1], chr):
+    if len(sys.argv[1]) == 1 or not isinstance(sys.argv[1], chr):
         response = requests.\
             get('http://0.0.0.0:5000/search_user', params={'q': ""})
     else:
