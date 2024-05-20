@@ -10,17 +10,18 @@ if __name__ == "__main__":
     query = sys.argv[1]
     if len(sys.argv) <= 1 or not isinstance(query, chr):
         response = requests.post('http://0.0.0.0:5000/search_user', data={"q": ""})  # Changed to POST
+        print("No result")
     else:
         response = requests.post('http://0.0.0.0:5000/search_user', data={"q": "{query}"})  # Changed to POST
     # else:
     #     response = requests.post('http://0.0.0.0:5000/search_user', data={"q": ""})  # Changed to POST
 
     # Check if the response status code indicates success
-    if response.status_code == 200:
-        data = response.json()
-        if not data:
-            print("No result")
+        if response.status_code == 200:
+            data = response.json()
+            if not data:
+                print("No result")
+            else:
+                print(f"[{data['id']}] {data['name']}")
         else:
-            print(f"[{data['id']}] {data['name']}")
-    else:
-        print(f"Request failed with status code {response.status_code}")
+            print(f"Request failed with status code {response.status_code}")
