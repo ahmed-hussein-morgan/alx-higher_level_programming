@@ -8,7 +8,7 @@ import requests
 if __name__ == "__main__":
     if len(sys.argv) > 1:
         query = sys.argv[1]
-        if len(query) <= 1 or not isinstance(query, str):
+        if len(query) <= 1 or not isinstance(query, chr):
             response = requests.post('http://0.0.0.0:5000/search_user', data={"q": ""})  # Changed to POST
         else:
             response = requests.post('http://0.0.0.0:5000/search_user', data={"q": query})  # Changed to POST
