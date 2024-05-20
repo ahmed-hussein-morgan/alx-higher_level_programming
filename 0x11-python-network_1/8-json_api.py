@@ -9,18 +9,18 @@ if __name__ == "__main__":
     if len(sys.argv) > 1:
         query = sys.argv[1]
         if len(query) <= 1 or not isinstance(query, str):
-            response =\
-                requests.get('http://0.0.0.0:5000/search_user', params={'q': ""})
+            response = requests.get('http://0.0.0.0:5000/search_user', params={'q': ""})
         else:
-            response =\
-                requests.get('http://0.0.0.0:5000/search_user', params={'q': query})
+            response = requests.get('http://0.0.0.0:5000/search_user', params={'q': query})
     else:
-        response = \
-            requests.get('http://0.0.0.0:5000/search_user', params={'q': ""})
+        response = requests.get('http://0.0.0.0:5000/search_user', params={'q': ""})
 
-    if not response.json():
-        print("Not a valid JSON")
-    elif len(response.json()) == 0:
-        print("No result")
+    # Check if the response status code indicates success
+    if response.status_code == 200:
+        data = response.json()
+        if not data:
+            print("No result")
+        else:
+            print(f"[{data['id']}] {data['name']}")
     else:
-        print(f"[{response.json()['id']}] {response.json()['name']}")
+        print(f"Request failed with status code {response.status_code}")
